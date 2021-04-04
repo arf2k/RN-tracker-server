@@ -1,17 +1,18 @@
-require("./models/User")
+require("./models/User");
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const authRoutes = require("./routes/authRoutes");
+const requireAuth = require("./middlewares/requireAuth");
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(authRoutes);
 
-app.get("/", (req, res) => {
+app.get("/", requireAuth, (req, res) => {
   console.log(req.body);
-  res.send("Sup?");
+  res.send(`Your email: ${req.user.email}`);
 });
 
 app.listen(3000, () => {
