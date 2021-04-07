@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const router = require("../routes/authRoutes");
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -45,5 +46,7 @@ userSchema.methods.comparePassword = function (candidatePassword) {
     });
   });
 };
+
+
 
 mongoose.model("User", userSchema);
