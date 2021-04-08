@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt");
 const router = require("../routes/authRoutes");
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
   email: {
     type: String,
     unique: true,
@@ -49,4 +50,4 @@ userSchema.methods.comparePassword = function (candidatePassword) {
 
 
 
-mongoose.model("User", userSchema);
+module.exports = mongoose.model("User", userSchema);
