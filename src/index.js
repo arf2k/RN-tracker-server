@@ -1,4 +1,4 @@
-require("./models/User");
+const User = require("./models/User");
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -19,8 +19,11 @@ app.listen(3000, () => {
   console.log("listening to port 3000");
 });
 
+
+
+
 const mongoUri =
-  "mongodb+srv://AForeman:bdG8CuTpZB0Xsj5t@cluster0.ixk8f.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+"mongodb+srv://AForeman:KqlmpZSdcIQCRimq@cluster0.ixk8f.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 mongoose.connect(mongoUri, {
   useNewUrlParser: true,
   useCreateIndex: true,
